@@ -1,0 +1,46 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "BiliNote",
+  "version": "2.4.4",
+  "identifier": "com.jefferyhuang.bilinote",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:3015",
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build --mode tauri "
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "BiliNote",
+        "width": 1600,
+        "height": 1000,
+        "resizable": true,
+        "fullscreen": false,
+        "devtools": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "externalBin": [
+      "bin/BiliNoteBackend/BiliNoteBackend"
+    ],
+    "resources": {
+    "bin/BiliNoteBackend/_internal":"_internal"
+    },
+    "macOS":{
+      "files": {
+               "Frameworks": "bin/BiliNoteBackend/_internal"
+      }
+    },
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/icon.ico",
+      "icons/icon.png"
+    ]
+  }
+}
